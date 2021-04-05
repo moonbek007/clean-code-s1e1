@@ -30,17 +30,17 @@ var createNewTaskElement = function (taskString) {
   var deleteButtonImg = document.createElement("img"); //delete button image
 
   label.innerText = taskString;
-  label.className = "label-element task";
+  label.className = "label__element task";
 
   //Each elements, needs appending
   checkBox.type = "checkbox";
   editInput.type = "text";
-  editInput.className = "input-element task";
+  editInput.className = "input__element task";
 
   editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className = "button-element edit";
+  editButton.className = "button__element edit";
 
-  deleteButton.className = "button-element delete";
+  deleteButton.className = "button__element delete";
   deleteButtonImg.src = "./remove.svg";
   deleteButton.appendChild(deleteButtonImg);
 
@@ -58,7 +58,7 @@ var addTask = function () {
   //Create a new list item with the text from the #new-task:
   if (!taskInput.value) return;
   var listItem = createNewTaskElement(taskInput.value);
-  listItem.classList.add("li-element");
+  listItem.classList.add("li__element");
   //Append listItem to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
@@ -88,7 +88,7 @@ var editTask = function () {
     editInput.value = label.innerText;
     editBtn.innerText = "Save";
   }
-  editInput.classList.add("input-element");
+  editInput.classList.add("input__element");
   //toggle .editmode on the parent.
   listItem.classList.toggle("edit-mode");
 };
